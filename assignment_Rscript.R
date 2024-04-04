@@ -20,21 +20,19 @@
 # There are 34 samples total in the 
 # original experiment, but for 
 # our purposes, we will be analyzing 
-# only 10 of them.
+# only 8 of them.
 # There are no replicates.
 
 # Here are the sample IDs and what they mean:
 # sample_ID         strain  sample#    time_point 
-#	WT_01_0h        	WT	    sample_01	  0 h	
-#	WT_02_4h        	WT	    sample_02	  4 h	
-#	WT_03_12h	        WT	    sample_03	  12 h	      
-#	WT_04_24h	        WT	    sample_04	  24 h	      
-#	WT_05_48h	        WT	    sample_05	  48 h	      
-#	sta6_06_0h	      sta6	  sample_06	  0 h	
-#	sta6_07_4h	      sta6	  sample_07	  4 h	
-#	sta6_08_12h	      sta6	  sample_08	  12 h	      
-#	sta6_09_24h	      sta6	  sample_09	  24 h	      
-#	sta6_10_48h	      sta6	  sample_10	  48 h	      
+#	WT_1_0h        	  WT	    sample_1	   0 h	
+#	WT_2_12h	        WT	    sample_2	  12 h	      
+#	WT_3_24h	        WT	    sample_3	  24 h	      
+#	WT_4_48h	        WT	    sample_4	  48 h	      
+#	sta6_5_0h	        sta6	  sample_5	   0 h	
+#	sta6_6_12h	      sta6	  sample_6	  12 h	      
+#	sta6_7_24h	      sta6	  sample_7	  24 h	      
+#	sta6_8_48h	      sta6	  sample_8	  48 h	      
 
 
 # For you assignment, you will edit this Rscript
@@ -46,8 +44,11 @@ library(cummeRbund)
 library(dplyr)
 
 
-# Next, load the RNA-Seq data into cuff DB:
-cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
+# Next, set the working directory
+setwd("~/MCB_C117_Assignment.git/acetate_boost_cuffdiff/")
+
+# Third, load the RNA-Seq data into cuff DB:
+cuff<-readCufflinks()
 
 
 ############### Task 1 (5 points) ###################
@@ -79,7 +80,6 @@ cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 
 
 
-
 # Save the result as a PDF file called Task_1.pdf
 # and include it with your submission.
 
@@ -93,19 +93,21 @@ cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 # Each student has been assigned a gene. 
 # Look up the ID of your gene on Phytozome
 # just like you did in Task 1 to find
-# your gene's gene ID. Make a smaller 
+# your gene's ID. Make a smaller 
 # data frame from your data frame of all 
 # FPKMs that just has your assigned gene.
 
 
-# What is the maximum value of FPKMs for your
-# gene? 
+# Use an R function to find the maximum value of FPKMs for your
+# of FPKMs for your gene? 
+
 
 
 # Answer = 
 
-# What is the standard deviation of FPKMs for your
-# gene for just the WT samples (columns 1 - 5)? 
+# Use an R function to calculate the standard deviation 
+# of FPKMs for your gene, but for just the WT samples (columns 1 - 4)? 
+
 
 
 # Answer = 
@@ -121,6 +123,7 @@ cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 
 
 
+
 # How many DEGs are there in this 
 # comparison:
 
@@ -130,6 +133,7 @@ cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 # sta6 vs. WT at the last time point (48h)
 # for each. Include your code
 # here:
+
 
 
 
@@ -150,11 +154,12 @@ cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 
 # Identify all of the significantly different
 # genes in the full dataset (i.e. don't specify
-# two samples to compare as you did in Task 2). 
+# two samples to compare as you did in Task 3). 
 # Get the data for this list of genes from 
 # you cuff database, and subject the 
 # resulting data to k-means clustering
 # with a k = 4. Include your script here:
+
 
 
 
@@ -180,8 +185,8 @@ cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 
 # Choose a group of genes from one of the analyses above
 # (e.g. one of the clusters from your k-means analysis
-# in Task 3  or a set of DEGs you
-# identified in Task 2) that you hope will capture 
+# in Task 4  or a set of DEGs you
+# identified in Task 3) that you hope will capture 
 # some of the genes that are important for TAG accumulation
 # or the effects of the sta6 mutation. 
 # Make a heatmap of the expression for that set of genes. 
