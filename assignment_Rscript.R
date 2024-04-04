@@ -46,16 +46,11 @@ library(cummeRbund)
 library(dplyr)
 
 
-# Next, set the working directory
-setwd("acetate_boost_cuffdiff/")
+# Next, load the RNA-Seq data into cuff DB:
+cuff<-readCufflinks("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
 
 
-# Third, load the RNA-Seq data into cuff DB:
-
-cuff<-readCufflinks()
-
-
-############### Task 1 (6 points) ###################
+############### Task 1 (5 points) ###################
 
 # This experiment compares WT cells with a 
 # sta6 mutant. Go to Phytozome:
@@ -88,15 +83,41 @@ cuff<-readCufflinks()
 # Save the result as a PDF file called Task_1.pdf
 # and include it with your submission.
 
+############### Task 2 (5 points) ###################
 
-############### Task 2 (6 points) ###################
+# Get the normalized counts (FPKMs) for all genes
+# and put this into a data frame.
 
+
+
+# Each student has been assigned a gene. 
+# Look up the ID of your gene on Phytozome
+# just like you did in Task 1 to find
+# your gene's gene ID. Make a smaller 
+# data frame from your data frame of all 
+# FPKMs that just has your assigned gene.
+
+
+# What is the maximum value of FPKMs for your
+# gene? 
+
+
+# Answer = 
+
+# What is the standard deviation of FPKMs for your
+# gene for just the WT samples (columns 1 - 5)? 
+
+
+# Answer = 
+
+############### Task 3 (5 points) ###################
+
+# How does expression change in the sta6 mutant?
 # Identify significantly different genes 
 # in the comparison between 
-# the final sta6 sample relative to the
-# first sta6 sample. Include your code
+# the last sta6 sample (48h) relative to the
+# first sta6 sample (0h). Include your code
 # here:
-
 
 
 
@@ -106,10 +127,9 @@ cuff<-readCufflinks()
 # Answer = 
 
 # Identify DEGs for a comparison of 
-# sta6 vs. WT at the last timepoint
+# sta6 vs. WT at the last time point (48h)
 # for each. Include your code
 # here:
-
 
 
 
@@ -126,7 +146,7 @@ cuff<-readCufflinks()
 
 
 
-############### Task 3 (7 points) ###################
+############### Task 4 (5 points) ###################
 
 # Identify all of the significantly different
 # genes in the full dataset (i.e. don't specify
@@ -138,9 +158,8 @@ cuff<-readCufflinks()
 
 
 
-
 # Make a cluster plot figure of your results. Save it
-# as a PDF called Task_3.pdf and include it with 
+# as a PDF called Task_4.pdf and include it with 
 # your submission.
 
 
@@ -157,7 +176,7 @@ cuff<-readCufflinks()
 
 # Answer = 
 
-############### Task 4 (6 points) ###################
+############### Task 5 (5 points) ###################
 
 # Choose a group of genes from one of the analyses above
 # (e.g. one of the clusters from your k-means analysis
@@ -169,14 +188,13 @@ cuff<-readCufflinks()
 
 
 
-
 # Change the default settings for making the heatmap,
 # and replot it. Remove row labels and choose a
 # nice color scheme. 
 
 
 
-# Save the result as a PDF file called Task_4.pdf
+# Save the result as a PDF file called Task_5.pdf
 # and include it with your submission.
 
 ###################### END ########################
