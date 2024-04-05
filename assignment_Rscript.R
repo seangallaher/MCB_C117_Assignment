@@ -43,12 +43,11 @@
 library(cummeRbund)
 library(dplyr)
 
-
 # Next, set the working directory
-setwd("~/MCB_C117_assignment.git/acetate_boost_cuffdiff/")
+setwd("~/MCB_C117_assignment.git/")
 
 # Third, load the RNA-Seq data into cuff DB:
-cuff<-readCufflinks()
+cuff<-readCufflinks(dir = "acetate_boost_cuffdiff/")
 
 
 ############### Task 1 (5 points) ###################
